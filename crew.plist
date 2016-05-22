@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Organizer and co-Founder</string>
+		<key>twitter</key>
+		<string>sbglasius</string>
+		<key>company</key>
+		<string>OCI / GR8Conf</string>
+		<key>name</key>
+		<string>Søren Berg Glasius</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/soeren.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>GR8 ApS Board Member</string>
+		<key>twitter</key>
+		<string>brianjohnsendk</string>
+		<key>company</key>
+		<string>Gennemtænkt IT</string>
+		<key>name</key>
+		<string>Brian Johnsen</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/brian.png</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>GR8 ApS Board Member</string>
+		<key>twitter</key>
+		<string>mlkristiansen</string>
+		<key>company</key>
+		<string>Gennemtænkt IT</string>
+		<key>name</key>
+		<string>Morten Kristiansen</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/morten.png</string>
+	</dict>
+	<dict>
+		<key>twitter</key>
+		<string>JacobAae</string>
+		<key>company</key>
+		<string>Lego Group</string>
+		<key>name</key>
+		<string>Jacob Aae Mikkelsen</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/jacob.png</string>
+	</dict>
+	<dict>
+		<key>twitter</key>
+		<string>dauer</string>
+		<key>company</key>
+		<string>Gennemtænkt IT</string>
+		<key>name</key>
+		<string>Thomas Rasmussen</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/thomas-r.png</string>
+	</dict>
+	<dict>
+		<key>twitter</key>
+		<string>StiwiCourage</string>
+		<key>company</key>
+		<string>COURAGE.it</string>
+		<key>name</key>
+		<string>Stiwi Gabriel Courage</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/stiwi.png</string>
+	</dict>
+	<dict>
+		<key>twitter</key>
+		<string>Null_dk</string>
+		<key>company</key>
+		<string>Null Consult ApS</string>
+		<key>name</key>
+		<string>Niels Ull Harremoës</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/niels.png</string>
+	</dict>
+	<dict>
+		<key>company</key>
+		<string>Nine A/S</string>
+		<key>name</key>
+		<string>Niels Jørgen Bagger</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/niels-joergen.png</string>
+	</dict>
+	<dict>
+		<key>twitter</key>
+		<string>anderskristian</string>
+		<key>company</key>
+		<string>Freelance</string>
+		<key>name</key>
+		<string>Anders Kristian Andersen</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/anders.png</string>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>kind</key>
+		<string>Platinum sponsor</string>
+		<key>url</key>
+		<string>http://ociweb.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/oci.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Platinum sponsor</string>
+		<key>url</key>
+		<string>http://nine.dk/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/nine.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Gold sponsor</string>
+		<key>url</key>
+		<string>http://tothenew.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/tothenew.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Silver sponsor</string>
+		<key>url</key>
+		<string>http://exensio.de/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/exensio.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Silver sponsor</string>
+		<key>url</key>
+		<string>https://www.codecentric.de/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/codecentric.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Silver sponsor</string>
+		<key>url</key>
+		<string>https://www.javagruppen.dk/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/javagruppen.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>https://www.canoo.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/canoo.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>https://www.jfrog.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/jfrog.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>https://www.codefresh.io/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/codefresh.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>https://www.innoq.de/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/innoq.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>http://www.shoptimix.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/shoptimix.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Media sponsor</string>
+		<key>url</key>
+		<string>https://www.autentia.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/autentia.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Organizers</string>
+		<key>url</key>
+		<string>http://gradle.org/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/gradle.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Organizers</string>
+		<key>url</key>
+		<string>http://gennemtaenkt.dk/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/gennemtaenktit.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Hosting Sponsors</string>
+		<key>url</key>
+		<string>http://easyspeedy.dk/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/easyspeedy.png</string>
+	</dict>
+</array>
+</plist>
