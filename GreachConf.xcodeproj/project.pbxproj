@@ -699,7 +699,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.gr8conf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "157d5d79-3a50-4e32-8b44-03d1bb0f5e0e";
+				PROVISIONING_PROFILE = "67e0bb8e-9536-4039-8902-d4f2c9b57b05";
 			};
 			name = Release;
 		};
@@ -716,7 +716,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.gr8conf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "655384fd-6804-4e80-89bd-1bd23e86e09b";
+				PROVISIONING_PROFILE = "a01b73e5-193b-41d3-989d-b428252c8c11";
 			};
 			name = Adhoc;
 		};
