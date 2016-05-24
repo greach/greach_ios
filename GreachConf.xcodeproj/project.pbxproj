@@ -99,7 +99,7 @@
 		D58A650F1CAB973C005DE268 /* GreachConf.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GreachConf.entitlements; sourceTree = SOURCE_ROOT; };
 		D59D8E311CB37066009F58A4 /* MoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		D5BA8BD91CEC18A900A2206D /* GR8Conf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GR8Conf.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5BA8BDA1CEC18A900A2206D /* GreachConf copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GreachConf copy-Info.plist"; path = "/Users/softamo/Documents/bitbucket/greach_ios/GreachConf copy-Info.plist"; sourceTree = "<absolute>"; };
+		D5BA8BDA1CEC18A900A2206D /* Gr8Conf-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Gr8Conf-Info.plist"; path = "/Users/softamo/Documents/bitbucket/greach_ios/Gr8Conf-Info.plist"; sourceTree = "<absolute>"; };
 		D5BA8BDE1CEC1A3200A2206D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GR8Conf/Images.xcassets; sourceTree = "<group>"; };
 		D5BA8BE21CEC203A00A2206D /* botconf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = botconf.plist; path = Gr8Conf/botconf.plist; sourceTree = "<group>"; };
 		D5BA8BE41CEC235300A2206D /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Gr8Conf/Theme.swift; sourceTree = "<group>"; };
@@ -162,7 +162,6 @@
 				78B7A9D01A3E9876002AAF7F /* GreachConf */,
 				783F5A161A490E1B00199736 /* Frameworks */,
 				78B7A9CF1A3E9876002AAF7F /* Products */,
-				D5BA8BDA1CEC18A900A2206D /* GreachConf copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +248,7 @@
 		D5BA8BDB1CEC192E00A2206D /* Gr8Conf */ = {
 			isa = PBXGroup;
 			children = (
+				D5BA8BDA1CEC18A900A2206D /* Gr8Conf-Info.plist */,
 				D546A59D1CF1942E00165BB6 /* LaunchScreen.xib */,
 				D5BB4E1C1CF17F5A005EDBD1 /* sponsors.plist */,
 				D5BB4E141CF16A0D005EDBD1 /* crew.plist */,
@@ -357,6 +357,11 @@
 					};
 					D5BA8BB61CEC18A900A2206D = {
 						DevelopmentTeam = GJPU52AN4L;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -675,10 +680,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_NOTICES = NO;
 				ASSETCATALOG_WARNINGS = NO;
-				CODE_SIGN_ENTITLEMENTS = GreachConf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "GreachConf copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Gr8Conf-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.gr8conf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -692,10 +696,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_NOTICES = NO;
 				ASSETCATALOG_WARNINGS = NO;
-				CODE_SIGN_ENTITLEMENTS = GreachConf.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "GreachConf copy-Info.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Softamo S.L. (GJPU52AN4L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Softamo S.L. (GJPU52AN4L)";
+				INFOPLIST_FILE = "$(SRCROOT)/Gr8Conf-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.gr8conf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -709,10 +712,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_NOTICES = NO;
 				ASSETCATALOG_WARNINGS = NO;
-				CODE_SIGN_ENTITLEMENTS = GreachConf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "GreachConf copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Gr8Conf-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.gr8conf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
