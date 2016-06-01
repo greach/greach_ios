@@ -30,7 +30,7 @@ enum Theme: Int {
     }
     
     var venueLongitude : CLLocationDegrees {
-        return 40.4319361
+        return 12.590958        
     }
     
     var venueName : String {
