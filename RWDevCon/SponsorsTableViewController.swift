@@ -22,15 +22,15 @@ class SponsorsTableViewController: UITableViewController {
         let mutableSet : NSMutableSet = NSMutableSet()
         
         for sponsor in sponsors {
-            mutableSet.addObject(sponsor.kind)
+            mutableSet.add(sponsor.kind)
         }
         
         
         let titles = mutableSet.allObjects as! [String]
         
-        return titles.sort { (let a, let b) -> Bool in
-            let aVal = orderByKind(a)
-            let bVal = orderByKind(b)
+        return titles.sorted { ( a, b) -> Bool in
+            let aVal = orderByKind(kind: a)
+            let bVal = orderByKind(kind: b)
             return aVal > bVal
         }
     }
@@ -40,7 +40,7 @@ class SponsorsTableViewController: UITableViewController {
         
         for sponsor in sponsors {
             if(sponsor.kind == kind) {
-                mutableSet.addObject(sponsor)
+                mutableSet.add(sponsor)
             }
         }
         
@@ -49,17 +49,25 @@ class SponsorsTableViewController: UITableViewController {
     
     
     func orderByKind(kind: String) -> Int {
-        
-        if(kind == "Platinum sponsor") {
+        if(kind == "Diamond") {
+            return 9
+    
+        } else if(kind == "Platinum") {
+            return 8
+            
+        } else if(kind == "Platinum sponsor") {
+            return 7
+            
+        } else if(kind == "Gold sponsor" || kind == "Gold") {
             return 6
             
-        } else if(kind == "Gold sponsor") {
+        } else if(kind == "Silver sponsor") {
             return 5
             
-        } else if(kind == "Silver sponsor") {
+        } else if(kind == "Bronze") {
             return 4
             
-        } else if(kind == "Partners") {
+        } else if(kind == "Partners" || kind == "Collaborators") {
             return 3
             
         } else if(kind == "Media sponsor") {
@@ -76,29 +84,25 @@ class SponsorsTableViewController: UITableViewController {
     
     func loadSponsors() {
         
-        let plistUrl = NSBundle.mainBundle().URLForResource("sponsors", withExtension: "plist")
-        if let plistData = NSData(contentsOfURL: plistUrl!) {
-            var formt = NSPropertyListFormat.XMLFormat_v1_0
+        let plistUrl = Bundle.main.url(forResource: "sponsors", withExtension: "plist")
+        if let plistData = NSData(contentsOf: plistUrl!) {            
             do {
-                let sponsorsPlist = try NSPropertyListSerialization.propertyListWithData(plistData, options: .Immutable, format: &formt)
+                let sponsorsPlist = try! PropertyListSerialization.propertyList(from:plistData as Data, options: [], format: nil)
+                
+//                let sponsorsPlist = try PropertyListSerialization.propertyListWithData(plistData, options: .Immutable, format: &formt)
                 for plistEntry in sponsorsPlist as! NSArray {
                     let s = Sponsor(kind: nil,
                                     url: nil,
                                     imageUrl: nil)
-                    if let kind = plistEntry["kind"] {
-                        if(kind != nil) {
-                            s.kind = kind! as! String
-                        }
+                    if let kind = (plistEntry as! NSDictionary)["kind"] {
+                        s.kind = kind as! String
+                        
                     }
-                    if let imageUrl = plistEntry["image_url"] {
-                        if(imageUrl != nil) {
-                            s.imageUrl = imageUrl! as! String
-                        }
+                    if let imageUrl = (plistEntry as! NSDictionary)["image_url"] {
+                        s.imageUrl = imageUrl as! String
                     }
-                    if let url = plistEntry["url"] {
-                        if(url != nil) {
-                            s.url = url! as! String
-                        }
+                    if let url = (plistEntry as! NSDictionary)["url"] {
+                        s.url = url as! String
                     }
                     sponsors.append(s)
                 }
@@ -109,31 +113,30 @@ class SponsorsTableViewController: UITableViewController {
         }
         
     }
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return headerTitles().count;
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let kind = headerTitles()[section]
-        return sponsorsByKind(kind).count
+        return sponsorsByKind(kind: kind).count
     }
 
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SponsorCellIdentifier", forIndexPath: indexPath) as! SponsorTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SponsorCellIdentifier", for: indexPath) as! SponsorTableViewCell
 
         let kind = headerTitles()[indexPath.section]
-        let sponsor = sponsorsByKind(kind)[indexPath.row]
+        let sponsor = sponsorsByKind(kind: kind)[indexPath.row]
         
         if(sponsor.imageUrl != nil) {
             if let url = NSURL(string: sponsor.imageUrl) {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                    if let data = NSData(contentsOfURL: url) {
-                        dispatch_async(dispatch_get_main_queue(), {
-                            cell.sponsorImageView?.image = UIImage(data: data)
+                DispatchQueue.global(qos: .userInitiated).async {
+                    if let data = NSData(contentsOf: url as URL) {
+                        DispatchQueue.main.async {
+                            cell.sponsorImageView?.image = UIImage(data: data as Data)
                             cell.setNeedsLayout()
-                        });
+                        }
                     }
                 }
             }
@@ -141,18 +144,17 @@ class SponsorsTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150;
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
            return headerTitles()[section]
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let kind = headerTitles()[indexPath.section]
-        let sponsor = sponsorsByKind(kind)[indexPath.row]
+        let sponsor = sponsorsByKind(kind: kind)[indexPath.row]
         
         if let urlStr = sponsor.url {
             openUrl(urlStr)
@@ -160,9 +162,9 @@ class SponsorsTableViewController: UITableViewController {
     
     }
     
-    func openUrl(urlStr: String) {
+    func openUrl(_ urlStr: String) {
         if let url = NSURL(string:urlStr) {
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.shared.openURL(url as URL)
         }
     }
 }

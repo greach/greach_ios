@@ -30,7 +30,7 @@ class MoreTableViewController : UITableViewController {
         loadCrew()
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if(indexPath.section == 0 && indexPath.row == 1) {
             openTwitterHandle(contactUs[indexPath.row])
@@ -47,15 +47,15 @@ class MoreTableViewController : UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {        
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {        
         return headers[section]
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return headers.count;
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0) {
             return contactUs.count;
             
@@ -66,14 +66,14 @@ class MoreTableViewController : UITableViewController {
     }
 
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cellIdentifier = "MoreCellIdentifier"
         if(indexPath.section == 1) {
             cellIdentifier = "MoreCrewCellIdentifier"
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         
         if(indexPath.section == 0) {
             
@@ -89,7 +89,7 @@ class MoreTableViewController : UITableViewController {
             cell?.textLabel?.text = c.name
             
             if(c.title != nil && c.company != nil) {
-                cell?.detailTextLabel?.text = "\(c.title) • \(c.company)"
+                cell?.detailTextLabel?.text = "\(c.title as String) • \(c.company as String)"
             } else if(c.company != nil) {
                 cell?.detailTextLabel?.text = "\(c.company)"
             } else if(c.title != nil) {
@@ -97,10 +97,10 @@ class MoreTableViewController : UITableViewController {
             }
             
             if(c.imageUrl != nil) {
-                if let url = NSURL(string: c.imageUrl) {
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                        if let data = NSData(contentsOfURL: url) {
-                            dispatch_async(dispatch_get_main_queue(), {
+                if let url = URL(string: c.imageUrl) {
+                    DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+                        if let data = try? Data(contentsOf: url) {
+                            DispatchQueue.main.async(execute: {
                                 cell?.imageView?.image = UIImage(data: data)
                                 cell?.setNeedsLayout()
                             });
@@ -114,43 +114,34 @@ class MoreTableViewController : UITableViewController {
     }
 
     func loadCrew() -> Void {
-        let plistUrl = NSBundle.mainBundle().URLForResource("crew", withExtension: "plist")
-        if let plistData = NSData(contentsOfURL: plistUrl!) {
-            var formt = NSPropertyListFormat.XMLFormat_v1_0
+        let plistUrl = Bundle.main.url(forResource: "crew", withExtension: "plist")
+        if let plistData = try? Data(contentsOf: plistUrl!) {
+            var formt = PropertyListSerialization.PropertyListFormat.xml
             do {
-                let crewPlist = try NSPropertyListSerialization.propertyListWithData(plistData, options: .Immutable, format: &formt)
-                for plistEntry in crewPlist as! NSArray {
+                let crewPlist = try PropertyListSerialization.propertyList(from: plistData, options: PropertyListSerialization.MutabilityOptions(), format: &formt)
+                for plistEntry in crewPlist as! [[String: String]] {
                     var c = Crew(name: nil,
                                  imageUrl: nil,
                                  title: nil,
                                  twitter: nil,
                                  company: nil)
-                    if let name = plistEntry["name"] {
-                        if(name != nil) {
-                            c.name = name! as! String
-                        }
-                    }
                     
+                    if let name = plistEntry["name"] {
+                        c.name = name
+                    }
                     
                     if let imageUrl = plistEntry["image_url"] {
-                        if(imageUrl != nil) {
-                            c.imageUrl = imageUrl! as! String
-                        }
+                        c.imageUrl = imageUrl
+                        
                     }
                     if let title = plistEntry["title"] {
-                        if(title != nil) {
-                            c.title = title! as! String
-                        }
+                        c.title = title
                     }
                     if let twitter = plistEntry["twitter"] {
-                        if(twitter != nil) {
-                            c.twitter = twitter! as! String
-                        }
+                        c.twitter = twitter
                     }
                     if let company = plistEntry["company"] {
-                        if(company != nil) {
-                            c.company = company! as! String
-                        }
+                        c.company = company
                     }
                     crew.append(c)
                 }
@@ -161,21 +152,21 @@ class MoreTableViewController : UITableViewController {
         }
     }
     
-    func openTwitterHandle(twitter: String) {
+    func openTwitterHandle(_ twitter: String) {
         if(twitter.hasPrefix("@")) {
-            if let url = NSURL(string:"https://twitter.com/\(((twitter as NSString).substringFromIndex(1)))") {
-                UIApplication.sharedApplication().openURL(url)
+            if let url = URL(string:"https://twitter.com/\(((twitter as NSString).substring(from: 1)))") {
+                UIApplication.shared.openURL(url)
             }
         } else {
-            if let url = NSURL(string:"https://twitter.com/\(twitter)") {
-                UIApplication.sharedApplication().openURL(url)
+            if let url = URL(string:"https://twitter.com/\(twitter)") {
+                UIApplication.shared.openURL(url)
             }
         }
     }
     
-    func openUrl(urlStr: String) {
-       if let url = NSURL(string:urlStr) {
-                UIApplication.sharedApplication().openURL(url)
+    func openUrl(_ urlStr: String) {
+       if let url = URL(string:urlStr) {
+                UIApplication.shared.openURL(url)
         }
     }
 }

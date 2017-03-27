@@ -7,11 +7,11 @@ class Track: NSManagedObject {
   @NSManaged var name: String
   @NSManaged var sessions: NSSet
 
-  class func trackByTrackId(trackId: Int, context: NSManagedObjectContext) -> Track? {
-    let fetch = NSFetchRequest(entityName: "Track")
+  class func trackByTrackId(_ trackId: Int, context: NSManagedObjectContext) -> Track? {
+    let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Track")
     fetch.predicate = NSPredicate(format: "trackId = %@", argumentArray: [trackId])
 
-    if let results = try? context.executeFetchRequest(fetch) {
+    if let results = try? context.fetch(fetch) {
       if let result = results.first as? Track {
         return result
       }
@@ -20,7 +20,7 @@ class Track: NSManagedObject {
     return nil
   }
 
-  class func trackByTrackIdOrNew(trackId: Int, context: NSManagedObjectContext) -> Track {
-    return trackByTrackId(trackId, context: context) ?? Track(entity: NSEntityDescription.entityForName("Track", inManagedObjectContext: context)!, insertIntoManagedObjectContext: context)
+  class func trackByTrackIdOrNew(_ trackId: Int, context: NSManagedObjectContext) -> Track {
+    return trackByTrackId(trackId, context: context) ?? Track(entity: NSEntityDescription.entity(forEntityName: "Track", in: context)!, insertInto: context)
   }
 }

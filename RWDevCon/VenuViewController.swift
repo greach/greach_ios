@@ -28,13 +28,13 @@ class VenueViewController : UIViewController {
 
     }
 
-    @IBAction func openInMapsTapped(sender: UIBarButtonItem) {
+    @IBAction func openInMapsTapped(_ sender: UIBarButtonItem) {
         
         let theme : Theme = ThemeManager.currentTheme()
         
-        let escapedAddress : String = theme.venueAddress.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let escapedAddress : String = theme.venueAddress.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let urlString : String = "http://maps.apple.com/maps?q=\(escapedAddress)&ll=\(theme.venueLatitude),\(theme.venueLongitude)"
-        let url : NSURL = NSURL(string:urlString)!
-        UIApplication.sharedApplication().openURL(url)
+        let url : URL = URL(string:urlString)!
+        UIApplication.shared.openURL(url)
     }
 }

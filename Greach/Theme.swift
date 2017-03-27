@@ -3,7 +3,7 @@ import UIKit
 import MapKit
 
 enum Theme: Int {
-    case Greach
+    case greach
     
     var conferenceWebsite : String {
         return  "http://greachconf.com"
@@ -22,7 +22,7 @@ enum Theme: Int {
     }
     
     var barStyle: UIBarStyle {
-        return .Black
+        return .black
     }
     
     var venueLatitude : CLLocationDegrees {
@@ -47,7 +47,7 @@ enum Theme: Int {
     }
     
     var navigationBarBackgroundColor : UIColor {
-        return UIColor.blackColor()
+        return UIColor.black
     }
 }
 
@@ -55,18 +55,19 @@ let SelectedThemeKey = "SelectedTheme"
 struct ThemeManager {
     
     static func currentTheme() -> Theme {
-        if let storedTheme = NSUserDefaults.standardUserDefaults().valueForKey(SelectedThemeKey)?.integerValue {
+        
+        if let storedTheme = UserDefaults.standard.value(forKey: SelectedThemeKey) as? Int {
             return Theme(rawValue: storedTheme)!
         } else {
-            return .Greach
+            return .greach
         }
     }
     
-    static func applyTheme(theme: Theme) {
-        NSUserDefaults.standardUserDefaults().setValue(theme.rawValue, forKey: SelectedThemeKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
+    static func applyTheme(_ theme: Theme) {
+        UserDefaults.standard.setValue(theme.rawValue, forKey: SelectedThemeKey)
+        UserDefaults.standard.synchronize()
         
-        let sharedApplication = UIApplication.sharedApplication()
+        let sharedApplication = UIApplication.shared
         sharedApplication.delegate?.window??.tintColor = theme.mainColor
         
         UINavigationBar.appearance().barTintColor = theme.navigationBarBackgroundColor

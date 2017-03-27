@@ -23,11 +23,11 @@
 import CoreData
 
 // A date before the bundled plist date
-private let beginningOfTimeDate = NSDate(timeIntervalSince1970: 1417348800)
+private let beginningOfTimeDate = Date(timeIntervalSince1970: 1417348800)
 
-public class CoreDataStack {
+open class CoreDataStack {
     
-    public let context: NSManagedObjectContext
+    open let context: NSManagedObjectContext
     let psc: NSPersistentStoreCoordinator
     let model: NSManagedObjectModel
     let store: NSPersistentStore?
@@ -35,10 +35,10 @@ public class CoreDataStack {
     public init() {
         let modelName = "RWDevCon"
         
-        let bundle = NSBundle.mainBundle()
+        let bundle = Bundle.main
         let modelURL =
-            bundle.URLForResource(modelName, withExtension:"momd")!
-        model = NSManagedObjectModel(contentsOfURL: modelURL)!
+            bundle.url(forResource: modelName, withExtension:"momd")!
+        model = NSManagedObjectModel(contentsOf: modelURL)!
         
         psc = NSPersistentStoreCoordinator(managedObjectModel: model)
         
@@ -46,7 +46,7 @@ public class CoreDataStack {
         context.persistentStoreCoordinator = psc
         
         let documentsURL = Config.applicationDocumentsDirectory()
-        let storeURL = documentsURL.URLByAppendingPathComponent("\(modelName).sqlite")
+        let storeURL = documentsURL.appendingPathComponent("\(modelName).sqlite")
         
         let options = [NSInferMappingModelAutomaticallyOption:true,
                        NSMigratePersistentStoresAutomaticallyOption:true]
@@ -54,7 +54,7 @@ public class CoreDataStack {
         var error: NSError? = nil
         var workingStore: NSPersistentStore?
         do {
-            workingStore = try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: options)
+            workingStore = try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
         } catch let error1 as NSError {
             error = error1
             workingStore = nil
@@ -64,7 +64,7 @@ public class CoreDataStack {
             var fileManagerError:NSError? = nil
             let didRemoveStore: Bool
             do {
-                try NSFileManager.defaultManager().removeItemAtURL(storeURL)
+                try FileManager.default.removeItem(at: storeURL)
                 didRemoveStore = true
             } catch let error as NSError {
                 fileManagerError = error
@@ -79,7 +79,7 @@ public class CoreDataStack {
             
             var error: NSError? = nil
             do {
-                workingStore = try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: options)
+                workingStore = try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: options)
             } catch let error1 as NSError {
                 error = error1
                 workingStore = nil
@@ -94,19 +94,19 @@ public class CoreDataStack {
         
         
         // If 0 sessions, start with the bundled plist data
-        if Session.sessionCount(context) == 0 {
-            if let conferencePlist = NSBundle.mainBundle().URLForResource("botconf", withExtension: "plist") {
+        if Session.sessionCount(context: context) == 0 {
+            if let conferencePlist = Bundle.main.url(forResource: "botconf", withExtension: "plist") {
                 loadDataFromPlist(conferencePlist)
             }
         } else {
             
-            if let conferencePlist = NSBundle.mainBundle().URLForResource("botconf", withExtension: "plist") {
+            if let conferencePlist = Bundle.main.url(forResource: "botconf", withExtension: "plist") {
                 
                 if let plistLastUpdated = loadMetadataFromPlist(conferencePlist) {
                     
-                    if let lastUpdated = Config.userDefaults().objectForKey("lastUpdated") as? NSDate {
+                    if let lastUpdated = Config.userDefaults().object(forKey: "lastUpdated") as? Date {
                         
-                        if plistLastUpdated.compare(lastUpdated) == NSComparisonResult.OrderedDescending {
+                        if plistLastUpdated.compare(lastUpdated) == ComparisonResult.orderedDescending {
                             
                             loadDataFromPlist(conferencePlist)
                             
@@ -118,10 +118,10 @@ public class CoreDataStack {
     }
     
     
-    func loadMetadataFromPlist(url: NSURL) -> NSDate! {
-        if let data = NSDictionary(contentsOfURL: url) {
+    func loadMetadataFromPlist(_ url: URL) -> Date! {
+        if let data = NSDictionary(contentsOf: url) {
             let metadata: NSDictionary! = data["metadata"] as? NSDictionary
-            return metadata["lastUpdated"] as? NSDate ?? nil
+            return metadata["lastUpdated"] as? Date ?? nil
             
         }
         
@@ -129,8 +129,8 @@ public class CoreDataStack {
         
     }
     
-    func loadDataFromPlist(url: NSURL) {
-        if let data = NSDictionary(contentsOfURL: url) {
+    func loadDataFromPlist(_ url: URL) {
+        if let data = NSDictionary(contentsOf: url) {
             typealias PlistDict = [String: NSDictionary]
             typealias PlistArray = [NSDictionary]
             
@@ -144,8 +144,8 @@ public class CoreDataStack {
                 return
             }
             
-            let lastUpdated = metadata["lastUpdated"] as? NSDate ?? beginningOfTimeDate
-            Config.userDefaults().setObject(lastUpdated, forKey: "lastUpdated")
+            let lastUpdated = metadata["lastUpdated"] as? Date ?? beginningOfTimeDate
+            Config.userDefaults().set(lastUpdated, forKey: "lastUpdated")
             
             var allRooms = [Room]()
             var allTracks = [Track]()
@@ -153,7 +153,7 @@ public class CoreDataStack {
             
             
             removeAllObjectsForEntity("Room")
-            for (identifier, dict) in rooms.enumerate() {
+            for (identifier, dict) in rooms.enumerated() {
                 let room = Room.roomByRoomIdOrNew(identifier, context: context)
                 
                 room.roomId = Int32(identifier)
@@ -168,7 +168,7 @@ public class CoreDataStack {
             }
             
             removeAllObjectsForEntity("Track")
-            for (identifier, name) in tracks.enumerate() {
+            for (identifier, name) in tracks.enumerated() {
                 let track = Track.trackByTrackIdOrNew(identifier, context: context)
                 
                 track.trackId = Int32(identifier)
@@ -193,11 +193,11 @@ public class CoreDataStack {
             
             removeAllObjectsForEntity("Session")
             for (identifier, dict) in sessions {
-                let session = Session.sessionByIdentifierOrNew(identifier, context: context)
+                let session = Session.sessionByIdentifierOrNew(identifier: identifier, context: context)
                 
                 session.identifier = identifier
                 session.active = dict["active"] as? Bool ?? false
-                session.date = dict["date"] as? NSDate ?? beginningOfTimeDate
+                session.date = dict["date"] as? NSDate ?? beginningOfTimeDate as NSDate
                 session.duration = Int32(dict["duration"] as? Int ?? 0)
                 session.column = Int32(dict["column"] as? Int ?? 0)
                 session.sessionNumber = dict["sessionNumber"] as? String ?? ""
@@ -220,16 +220,16 @@ public class CoreDataStack {
             
             saveContext()
             
-            NSNotificationCenter.defaultCenter().postNotificationName(SessionDataUpdatedNotification, object: self)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: SessionDataUpdatedNotification), object: self)
         }
     }
     
-    func removeAllObjectsForEntity(entityName: String ) -> Void {
+    func removeAllObjectsForEntity(_ entityName: String ) -> Void {
         do {
-            let request = NSFetchRequest(entityName: entityName)
-            let entitiesList = try context.executeFetchRequest(request)
-            for bas: AnyObject in entitiesList {
-                context.deleteObject(bas as! NSManagedObject)
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+            let entitiesList = try context.fetch(request)
+            for bas: NSManagedObject in entitiesList as! [NSManagedObject] {
+                context.delete(bas)
             }
         } catch let entityError as NSError {
             print("error deleting \(entityName) \(entityError)")

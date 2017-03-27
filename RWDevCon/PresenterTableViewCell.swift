@@ -17,6 +17,6 @@ class PresenterTableViewCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
 
-    twitterButton?.removeTarget(nil, action: nil, forControlEvents: UIControlEvents.AllTouchEvents)
+    twitterButton?.removeTarget(nil, action: nil, for: UIControlEvents.allTouchEvents)
   }
 }

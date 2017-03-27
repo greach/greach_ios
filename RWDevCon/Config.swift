@@ -7,25 +7,25 @@ class Config {
         return "Europe/Warsaw"
     }
     
-  class func applicationDocumentsDirectory() -> NSURL {
-    let fileManager = NSFileManager.defaultManager()
+  class func applicationDocumentsDirectory() -> URL {
+    let fileManager = FileManager.default
 
-    let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) 
+    let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask) 
     return urls[0]
   }
   
-  class func userDefaults() -> NSUserDefaults {
-    return NSUserDefaults.standardUserDefaults()
+  class func userDefaults() -> UserDefaults {
+    return UserDefaults.standard
   }
 
   class func favoriteSessions() -> [String: String] {
-    if let favs = userDefaults().dictionaryForKey("favoriteSessions") as? [String: String] {
+    if let favs = userDefaults().dictionary(forKey: "favoriteSessions") as? [String: String] {
       return favs
     }
     return [:]
   }
 
-  class func registerFavorite(session: Session) {
+  class func registerFavorite(_ session: Session) {
     var favs = favoriteSessions()
     favs[session.startDateTimeString] = session.identifier
 
@@ -33,7 +33,7 @@ class Config {
     userDefaults().synchronize()
   }
 
-  class func unregisterFavorite(session: Session) {
+  class func unregisterFavorite(_ session: Session) {
     var favs = favoriteSessions()
     favs[session.startDateTimeString] = nil
 
