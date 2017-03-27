@@ -50,6 +50,13 @@ class ScheduleTableViewController: UITableViewController {
                 }
                 
             }
+            
+            if ( session.title == "Lunch" || session.title == "Registration" || session.title.hasPrefix("Coffe") || session.title.hasPrefix("Welcome") ) {
+                cell.accessoryType = UITableViewCellAccessoryType.none
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            }
+            
         }
         
         let logoImageView = UIImageView(image: UIImage(named: "logo-rwdevcon"))
