@@ -361,6 +361,7 @@
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = GJPU52AN4L;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -638,7 +639,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.greachconf;
 				PRODUCT_NAME = GreachConf;
-				PROVISIONING_PROFILE = "157d5d79-3a50-4e32-8b44-03d1bb0f5e0e";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -699,7 +700,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.greachconf;
 				PRODUCT_NAME = GreachConf;
-				PROVISIONING_PROFILE = "655384fd-6804-4e80-89bd-1bd23e86e09b";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Adhoc;
