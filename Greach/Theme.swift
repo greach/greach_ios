@@ -5,6 +5,10 @@ import MapKit
 enum Theme: Int {
     case greach
     
+    var botconfUrl: URL {
+        return URL(string: "http://botconf.s3.amazonaws.com/greach/botconf.plist")!
+    }
+    
     var conferenceWebsite : String {
         return  "http://greachconf.com"
     }

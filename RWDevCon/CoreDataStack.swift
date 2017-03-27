@@ -100,7 +100,9 @@ open class CoreDataStack {
             }
         } else {
             
-            if let conferencePlist = Bundle.main.url(forResource: "botconf", withExtension: "plist") {
+            let theme : Theme = ThemeManager.currentTheme()
+            let conferencePlist = theme.botconfUrl
+            //if let conferencePlist = Bundle.main.url(forResource: "botconf", withExtension: "plist") {
                 
                 if let plistLastUpdated = loadMetadataFromPlist(conferencePlist) {
                     
@@ -113,7 +115,7 @@ open class CoreDataStack {
                         }
                     }
                 }
-            }
+            //}
         }
     }
     
