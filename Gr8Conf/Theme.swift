@@ -5,6 +5,10 @@ import MapKit
 enum Theme: Int {
     case GR8ConfEU
     
+    var botconfUrl: URL {
+        return URL(string: "https://botconf.s3.amazonaws.com/gr8confeu/gr8confeu-2017.plist")!
+    }
+    
     var conferenceWebsite : String {
         return  "http://gr8conf.eu"
     }
@@ -22,7 +26,7 @@ enum Theme: Int {
     }
     
     var barStyle: UIBarStyle {
-        return .Black
+        return .black
     }
     
     var venueLatitude : CLLocationDegrees {
@@ -47,7 +51,7 @@ enum Theme: Int {
     }
     
     var navigationBarBackgroundColor : UIColor {
-        return UIColor.blackColor()
+        return UIColor.black
     }
 }
 
@@ -55,7 +59,7 @@ let SelectedThemeKey = "SelectedTheme"
 struct ThemeManager {
     
     static func currentTheme() -> Theme {
-        if let storedTheme = NSUserDefaults.standardUserDefaults().valueForKey(SelectedThemeKey)?.integerValue {
+        if let storedTheme = (UserDefaults.standard.value(forKey: SelectedThemeKey) as AnyObject).integerValue {
             return Theme(rawValue: storedTheme)!
         } else {
             return .GR8ConfEU
@@ -63,10 +67,10 @@ struct ThemeManager {
     }
     
     static func applyTheme(theme: Theme) {
-        NSUserDefaults.standardUserDefaults().setValue(theme.rawValue, forKey: SelectedThemeKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
+        UserDefaults.standard.setValue(theme.rawValue, forKey: SelectedThemeKey)
+        UserDefaults.standard.synchronize()
         
-        let sharedApplication = UIApplication.sharedApplication()
+        let sharedApplication = UIApplication.shared
         sharedApplication.delegate?.window??.tintColor = theme.mainColor
         
         UINavigationBar.appearance().barTintColor = theme.navigationBarBackgroundColor

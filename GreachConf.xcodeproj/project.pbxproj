@@ -59,7 +59,6 @@
 		D5BA8BCF1CEC18A900A2206D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78B7A9DA1A3E9876002AAF7F /* Main.storyboard */; };
 		D5BA8BD31CEC18A900A2206D /* shared.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78B978EE1A6737F1009DFB8B /* shared.xcassets */; };
 		D5BA8BDF1CEC1A3200A2206D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BA8BDE1CEC1A3200A2206D /* Images.xcassets */; };
-		D5BA8BE31CEC203A00A2206D /* botconf.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5BA8BE21CEC203A00A2206D /* botconf.plist */; };
 		D5BA8BE51CEC235300A2206D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BA8BE41CEC235300A2206D /* Theme.swift */; };
 		D5BB4E151CF16A0D005EDBD1 /* crew.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5BB4E141CF16A0D005EDBD1 /* crew.plist */; };
 		D5BB4E171CF16AC2005EDBD1 /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BB4E161CF16AC2005EDBD1 /* Crew.swift */; };
@@ -109,7 +108,6 @@
 		D5BA8BD91CEC18A900A2206D /* GR8Conf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GR8Conf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5BA8BDA1CEC18A900A2206D /* Gr8Conf-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Gr8Conf-Info.plist"; path = "/Users/softamo/Documents/bitbucket/greach_ios/Gr8Conf-Info.plist"; sourceTree = "<absolute>"; };
 		D5BA8BDE1CEC1A3200A2206D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = GR8Conf/Images.xcassets; sourceTree = "<group>"; };
-		D5BA8BE21CEC203A00A2206D /* botconf.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = botconf.plist; path = Gr8Conf/botconf.plist; sourceTree = "<group>"; };
 		D5BA8BE41CEC235300A2206D /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = Gr8Conf/Theme.swift; sourceTree = "<group>"; };
 		D5BB4E141CF16A0D005EDBD1 /* crew.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = crew.plist; sourceTree = "<group>"; };
 		D5BB4E161CF16AC2005EDBD1 /* Crew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crew.swift; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 				D5BB4E1C1CF17F5A005EDBD1 /* sponsors.plist */,
 				D5BB4E141CF16A0D005EDBD1 /* crew.plist */,
 				D5BA8BE41CEC235300A2206D /* Theme.swift */,
-				D5BA8BE21CEC203A00A2206D /* botconf.plist */,
 				D5BA8BDE1CEC1A3200A2206D /* Images.xcassets */,
 			);
 			name = Gr8Conf;
@@ -354,7 +351,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Razeware LLC";
 				TargetAttributes = {
 					78B7A9CD1A3E9876002AAF7F = {
@@ -370,6 +367,8 @@
 					};
 					D5BA8BB61CEC18A900A2206D = {
 						DevelopmentTeam = GJPU52AN4L;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -419,7 +418,6 @@
 			files = (
 				D5BA8BCF1CEC18A900A2206D /* Main.storyboard in Resources */,
 				D5BA8BDF1CEC1A3200A2206D /* Images.xcassets in Resources */,
-				D5BA8BE31CEC203A00A2206D /* botconf.plist in Resources */,
 				D546A59E1CF1942E00165BB6 /* LaunchScreen.xib in Resources */,
 				D5BB4E1D1CF17F5A005EDBD1 /* sponsors.plist in Resources */,
 				D5BA8BD31CEC18A900A2206D /* shared.xcassets in Resources */,
@@ -713,11 +711,14 @@
 				ASSETCATALOG_WARNINGS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Gr8Conf-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.gr8conf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -728,12 +729,15 @@
 				ASSETCATALOG_NOTICES = NO;
 				ASSETCATALOG_WARNINGS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Softamo S.L. (GJPU52AN4L)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Softamo S.L. (GJPU52AN4L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Gr8Conf-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.gr8conf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "67e0bb8e-9536-4039-8902-d4f2c9b57b05";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -745,11 +749,14 @@
 				ASSETCATALOG_WARNINGS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Gr8Conf-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.gr8conf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a01b73e5-193b-41d3-989d-b428252c8c11";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Adhoc;
 		};

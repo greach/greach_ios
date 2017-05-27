@@ -4,7 +4,103 @@
 <array>
 	<dict>
 		<key>kind</key>
-		<string>Platinum sponsor</string>
+		<string>Partners</string>
+		<key>url</key>
+		<string>http://www.vaadin.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/vaadin_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>https://www.gdata-advancedanalytics.de/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/gdata_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>http://www.praqma.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/praqma_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>http://www.sig.eu/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/sig_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>https://www.first8.nl/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/first8_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>https://www.jfrog.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/jfrog_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>http://devchampions.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/devchampions_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Partners</string>
+		<key>url</key>
+		<string>http://redhat.com/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/redhat_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Collaborating User Groups</string>
+		<key>url</key>
+		<string>http://javagruppen.dk/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/javagruppen_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Collaborating User Groups</string>
+		<key>url</key>
+		<string>http://www.gr8ladies.org/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/gr8ladies_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Silver sponsor</string>
+		<key>url</key>
+		<string>http://mind4it.dk/</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/mind4it_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Gold sponsor</string>
+		<key>url</key>
+		<string>https://www.motork.io</string>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/sponsors/motork_300.png</string>
+	</dict>
+	<dict>
+		<key>kind</key>
+		<string>Gold sponsor</string>
 		<key>url</key>
 		<string>http://ociweb.com/</string>
 		<key>image_url</key>
@@ -20,7 +116,7 @@
 	</dict>
 	<dict>
 		<key>kind</key>
-		<string>Gold sponsor</string>
+		<string>Silver sponsor</string>
 		<key>url</key>
 		<string>http://tothenew.com/</string>
 		<key>image_url</key>
@@ -36,7 +132,7 @@
 	</dict>
 	<dict>
 		<key>kind</key>
-		<string>Silver sponsor</string>
+		<string>Gold sponsor</string>
 		<key>url</key>
 		<string>https://www.codecentric.de/</string>
 		<key>image_url</key>
@@ -44,51 +140,19 @@
 	</dict>
 	<dict>
 		<key>kind</key>
-		<string>Silver sponsor</string>
+		<string>Media sponsor</string>
 		<key>url</key>
-		<string>https://www.javagruppen.dk/</string>
+		<string>http://groovycalamari.com</string>
 		<key>image_url</key>
-		<string>http://gr8conf.eu/images/eu/sponsors/javagruppen.png</string>
+		<string>http://gr8conf.eu/images/eu/sponsors/groovycalamari_300.png</string>
 	</dict>
 	<dict>
 		<key>kind</key>
-		<string>Partners</string>
+		<string>Silver sponsor</string>
 		<key>url</key>
 		<string>https://www.canoo.com/</string>
 		<key>image_url</key>
 		<string>http://gr8conf.eu/images/eu/sponsors/canoo.png</string>
-	</dict>
-	<dict>
-		<key>kind</key>
-		<string>Partners</string>
-		<key>url</key>
-		<string>https://www.jfrog.com/</string>
-		<key>image_url</key>
-		<string>http://gr8conf.eu/images/eu/sponsors/jfrog.png</string>
-	</dict>
-	<dict>
-		<key>kind</key>
-		<string>Partners</string>
-		<key>url</key>
-		<string>https://www.codefresh.io/</string>
-		<key>image_url</key>
-		<string>http://gr8conf.eu/images/eu/sponsors/codefresh.png</string>
-	</dict>
-	<dict>
-		<key>kind</key>
-		<string>Partners</string>
-		<key>url</key>
-		<string>https://www.innoq.de/</string>
-		<key>image_url</key>
-		<string>http://gr8conf.eu/images/eu/sponsors/innoq.png</string>
-	</dict>
-	<dict>
-		<key>kind</key>
-		<string>Partners</string>
-		<key>url</key>
-		<string>http://www.shoptimix.com/</string>
-		<key>image_url</key>
-		<string>http://gr8conf.eu/images/eu/sponsors/shoptimix.png</string>
 	</dict>
 	<dict>
 		<key>kind</key>
@@ -97,14 +161,6 @@
 		<string>https://www.autentia.com/</string>
 		<key>image_url</key>
 		<string>http://gr8conf.eu/images/eu/sponsors/autentia.png</string>
-	</dict>
-	<dict>
-		<key>kind</key>
-		<string>Organizers</string>
-		<key>url</key>
-		<string>http://gradle.org/</string>
-		<key>image_url</key>
-		<string>http://gr8conf.eu/images/eu/sponsors/gradle.png</string>
 	</dict>
 	<dict>
 		<key>kind</key>

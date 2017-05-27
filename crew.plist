@@ -39,6 +39,8 @@
 		<string>http://gr8conf.eu/images/eu/crew/morten.png</string>
 	</dict>
 	<dict>
+		<key>title</key>
+		<string></string>
 		<key>twitter</key>
 		<string>JacobAae</string>
 		<key>company</key>
@@ -49,6 +51,8 @@
 		<string>http://gr8conf.eu/images/eu/crew/jacob.png</string>
 	</dict>
 	<dict>
+		<key>title</key>
+		<string></string>
 		<key>twitter</key>
 		<string>dauer</string>
 		<key>company</key>
@@ -59,6 +63,8 @@
 		<string>http://gr8conf.eu/images/eu/crew/thomas-r.png</string>
 	</dict>
 	<dict>
+		<key>title</key>
+		<string></string>
 		<key>twitter</key>
 		<string>StiwiCourage</string>
 		<key>company</key>
@@ -69,6 +75,8 @@
 		<string>http://gr8conf.eu/images/eu/crew/stiwi.png</string>
 	</dict>
 	<dict>
+		<key>title</key>
+		<string></string>
 		<key>twitter</key>
 		<string>Null_dk</string>
 		<key>company</key>
@@ -79,6 +87,8 @@
 		<string>http://gr8conf.eu/images/eu/crew/niels.png</string>
 	</dict>
 	<dict>
+		<key>title</key>
+		<string></string>
 		<key>company</key>
 		<string>Nine A/S</string>
 		<key>name</key>
@@ -87,6 +97,8 @@
 		<string>http://gr8conf.eu/images/eu/crew/niels-joergen.png</string>
 	</dict>
 	<dict>
+		<key>title</key>
+		<string></string>
 		<key>twitter</key>
 		<string>anderskristian</string>
 		<key>company</key>
@@ -95,6 +107,18 @@
 		<string>Anders Kristian Andersen</string>
 		<key>image_url</key>
 		<string>http://gr8conf.eu/images/eu/crew/anders.png</string>
+	</dict>
+	<dict>
+		<key>image_url</key>
+		<string>http://gr8conf.eu/images/eu/crew/jennifer.png</string>
+		<key>twitter</key>
+		<string>codeJENNerator</string>
+		<key>title</key>
+		<string></string>
+		<key>name</key>
+		<string>Jennifer Strater</string>
+		<key>company</key>
+		<string>Freelance</string>
 	</dict>
 </array>
 </plist>

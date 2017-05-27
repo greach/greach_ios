@@ -94,12 +94,12 @@ open class CoreDataStack {
         
         
         // If 0 sessions, start with the bundled plist data
-        if Session.sessionCount(context: context) == 0 {
-            if let conferencePlist = Bundle.main.url(forResource: "botconf", withExtension: "plist") {
-                loadDataFromPlist(conferencePlist)
-            }
-        } else {
-            
+//        if Session.sessionCount(context: context) == 0 {
+//            if let conferencePlist = Bundle.main.url(forResource: "botconf", withExtension: "plist") {
+//                loadDataFromPlist(conferencePlist)
+//            }
+//        } else {
+        
             let theme : Theme = ThemeManager.currentTheme()
             let conferencePlist = theme.botconfUrl
             //if let conferencePlist = Bundle.main.url(forResource: "botconf", withExtension: "plist") {
@@ -113,10 +113,12 @@ open class CoreDataStack {
                             loadDataFromPlist(conferencePlist)
                             
                         }
+                    } else {
+                        loadDataFromPlist(conferencePlist)
                     }
                 }
             //}
-        }
+        //}
     }
     
     

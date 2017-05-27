@@ -50,32 +50,38 @@ class SponsorsTableViewController: UITableViewController {
     
     func orderByKind(kind: String) -> Int {
         if(kind == "Diamond") {
-            return 9
+            return 11
     
         } else if(kind == "Platinum") {
-            return 8
+            return 10
             
         } else if(kind == "Platinum sponsor") {
-            return 7
+            return 9
             
         } else if(kind == "Gold sponsor" || kind == "Gold") {
-            return 6
+            return 8
             
         } else if(kind == "Silver sponsor") {
-            return 5
+            return 7
             
         } else if(kind == "Bronze") {
-            return 4
+            return 6
             
         } else if(kind == "Partners" || kind == "Collaborators") {
-            return 3
+            return 5
             
         } else if(kind == "Media sponsor") {
-            return 2
-            
+            return 4
         } else if(kind == "Organizers") {
+            return 3
+
+        } else if(kind == "Collaborating User Groups") {
+            return 2
+         
+        } else if(kind == "Hosting Sponsor") {
             return 1
         }
+        
         return 0
     }
     
@@ -129,6 +135,7 @@ class SponsorsTableViewController: UITableViewController {
         let kind = headerTitles()[indexPath.section]
         let sponsor = sponsorsByKind(kind: kind)[indexPath.row]
         
+        cell.sponsorImageView?.image = nil;
         if(sponsor.imageUrl != nil) {
             if let url = NSURL(string: sponsor.imageUrl) {
                 DispatchQueue.global(qos: .userInitiated).async {
