@@ -615,6 +615,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreachConf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GJPU52AN4L;
 				INFOPLIST_FILE = RWDevCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.greachconf;
@@ -633,6 +634,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreachConf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Softamo S.L. (GJPU52AN4L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GJPU52AN4L;
 				INFOPLIST_FILE = RWDevCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.greachconf;
@@ -694,6 +696,7 @@
 				CODE_SIGN_ENTITLEMENTS = GreachConf.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Softamo S.L. (GJPU52AN4L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = GJPU52AN4L;
 				INFOPLIST_FILE = RWDevCon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.softamo.ios.greachconf;

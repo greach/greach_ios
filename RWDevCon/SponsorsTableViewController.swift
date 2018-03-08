@@ -61,7 +61,7 @@ class SponsorsTableViewController: UITableViewController {
         } else if(kind == "Gold sponsor" || kind == "Gold") {
             return 8
             
-        } else if(kind == "Silver sponsor") {
+        } else if(kind == "Silver sponsor" || kind == "Silver" ) {
             return 7
             
         } else if(kind == "Bronze") {
